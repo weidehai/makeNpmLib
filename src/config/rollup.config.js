@@ -18,13 +18,15 @@ const baseConfig = {
 if (process.env.NODE_ENV === 'development') {
   baseConfig.output.push({
     file: './dist/main.js',
-    format: 'cjs',
+    name: '',
+    format: 'umd',
   });
 }
 if (process.env.NODE_ENV === 'production') {
   baseConfig.output.push({
     file: './dist/main.min.js',
-    format: 'cjs',
+    name: '',
+    format: 'umd',
     plugins: [terser()],
   });
 }
