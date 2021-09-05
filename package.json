@@ -1,13 +1,13 @@
 {
   "name": "makenl",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "make npm libary template(common use depend and config)",
   "main": "dist/main.min.js",
   "types": "dist/index.d.ts",
   "author": "wone",
   "license": "MIT",
   "bin": {
-    "makenl": "dist/main.min.js"
+    "makenl": "cli.js"
   },
   "files": [
     "dist",
