@@ -1,3 +1,8 @@
 /*.config.js
+cli.js
 **/config/*.config.js
 *.json
+**/test/*
+/dist
+/node_modules
+/build
