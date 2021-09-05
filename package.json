@@ -1,6 +1,6 @@
 {
   "name": "makenl",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "make npm libary template(common use depend and config)",
   "main": "dist/main.min.js",
   "types": "dist/index.d.ts",
