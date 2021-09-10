@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "dnl",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "download file get from ajax",
+  "main": "dist/main.min.js",
   "types": "dist/index.d.ts",
   "author": "wone",
   "license": "MIT",
@@ -12,19 +12,23 @@
     "dist"
   ],
   "scripts": {
-    "build-dev": "cross-env NODE_ENV=development rollup --config",
-    "build-rls": "cross-env NODE_ENV=production rollup --config",
+    "build-dev": "node build/clear.js && cross-env NODE_ENV=development rollup --config",
+    "build-rls": "node build/clear.js && cross-env NODE_ENV=production rollup --config",
     "test": "jest",
     "build": "build-dev && yarn test",
     "pu": "yarn test && yarn build-rls && yarn publish",
+    "pu:github": "yarn test && yarn build-rls && yarn sync:github",
     "sync:github": "git add -A && git commit && git push -u origin master",
     "prepare": "husky install",
     "lint": "eslint src/**"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.5",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.10",
+    "@types/url-parse": "^1.4.4",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript-prettier": "^4.2.0",
@@ -51,8 +55,6 @@
     },
     "rules": {
       "@typescript-eslint/no-var-requires": "off",
-      "import/prefer-default-export":"off",
-      "@typescript-eslint/no-shadow":"off",
       "prettier/prettier": [
         "error",
         {

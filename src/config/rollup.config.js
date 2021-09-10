@@ -1,5 +1,7 @@
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
 import path from 'path';
 
@@ -12,6 +14,8 @@ const baseConfig = {
     alias({
       entries: [{ find: 'src', replacement: path.resolve(__dirname, 'src') }],
     }),
+    nodeResolve(),
+    commonjs(),
   ],
 };
 
