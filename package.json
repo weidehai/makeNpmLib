@@ -1,6 +1,6 @@
 {
   "name": "makenl",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "make npm libary template(common use depend and config)",
   "main": "dist/main.min.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,8 @@
   },
   "files": [
     "dist",
-    "cli.js"
+    "cli.js",
+    "build/clear.js"
   ],
   "scripts": {
     "build-dev": "node build/clear.js && cross-env NODE_ENV=development rollup --config && node build/cpconfig.js",
