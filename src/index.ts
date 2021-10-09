@@ -40,12 +40,17 @@ function main() {
         stdio: 'inherit',
       });
       husky.on('close', () => {
-        spawn('cmd.exe', ['/c', 'npx', 'husky', 'add', '.husky/pre-commit', 'yarn test'], {
-          stdio: 'inherit',
-        });
-
-        spawn('cmd.exe', ['/c', 'npx', 'husky', 'add', '.husky/pre-commit', 'yarn lint'], {
-          stdio: 'inherit',
+        const action1 = spawn(
+          'cmd.exe',
+          ['/c', 'npx', 'husky', 'add', '.husky/pre-commit', 'yarn test'],
+          {
+            stdio: 'inherit',
+          }
+        );
+        action1.on('close', () => {
+          spawn('cmd.exe', ['/c', 'npx', 'husky', 'add', '.husky/pre-commit', 'yarn lint'], {
+            stdio: 'inherit',
+          });
         });
       });
     });
