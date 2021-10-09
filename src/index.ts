@@ -1,7 +1,9 @@
 import { ChildProcess } from 'child_process';
 
+/* eslint-disable */
 const { spawn } = require('child_process');
 const path = require('path');
+/* eslint-enable */
 
 function alldone(cps: ChildProcess[], cb: () => void) {
   let count = cps.length;
