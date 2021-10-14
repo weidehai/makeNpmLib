@@ -1,7 +1,9 @@
 import { ChildProcess } from 'child_process';
 
+/* eslint-disable */
 const { spawn } = require('child_process');
 const path = require('path');
+/* eslint-enable */
 
 function alldone(cps: ChildProcess[], cb: () => void) {
   let count = cps.length;
@@ -16,13 +18,13 @@ function alldone(cps: ChildProcess[], cb: () => void) {
 function main() {
   const config = spawn(
     'xcopy',
-    ['/s/e', `${path.resolve(__dirname, 'config')}`, `${path.resolve(process.cwd())}`],
+    ['/s/e/q/y', `${path.resolve(__dirname, 'config')}`, `${path.resolve(process.cwd())}`],
     { stdio: 'inherit' }
   );
   const build = spawn(
     'xcopy',
     [
-      '/s/e/i',
+      '/s/e/i/q/y',
       `${path.resolve(__dirname, '../build')}`,
       `${path.resolve(process.cwd(), 'build/')}`,
     ],
@@ -30,7 +32,11 @@ function main() {
   );
   const test = spawn(
     'xcopy',
-    ['/s/e/i', `${path.resolve(__dirname, '../test')}`, `${path.resolve(process.cwd(), 'test/')}`],
+    [
+      '/s/e/i/q/y',
+      `${path.resolve(__dirname, '../test')}`,
+      `${path.resolve(process.cwd(), 'test/')}`,
+    ],
     { stdio: 'inherit' }
   );
   alldone([config, build, test], () => {
